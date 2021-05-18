@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">redditTopListMVVM</string>
+    <string name="item_title_text">Temp_Header</string>
+    <string name="item_author">Author</string>
+    <string name="item_posted_by_text">Posted by</string>
+    <string name="comments_counter">276</string>
+    <string name="current_rating">144k</string>
+    <string name="item_group">Group</string>
+    <string name="warning_text">No internet connection available</string>
+</resources>
