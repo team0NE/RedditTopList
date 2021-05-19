@@ -61,6 +61,7 @@ class Utils {
                 roomList.add(newEntity)
             }
 
+            Log.d("utls", "roomList.size: ${roomList.size}")
             return roomList
         }
     }

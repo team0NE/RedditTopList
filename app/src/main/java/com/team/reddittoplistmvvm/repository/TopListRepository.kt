@@ -28,20 +28,21 @@ class TopListRepository {
             .subscribe { resp ->
                 val list = resp.data?.itemsList
                 _itemList.postValue(list)
+                //clear room
+                App.database.redditItemDao().deleteAll()
+                //save list room
+                val roomList = Utils.convertList(list)
+                App.database.redditItemDao().insertAll(roomList as ArrayList<RedditItemEntity>)
             }
     }
 
     private fun getDBData() {
-
+        val dbList = App.database.redditItemDao().getAll()
+        _itemDBList.postValue(dbList)
     }
 
     fun getInternetList(): LiveData<List<RedditItem>> {
         getInternetData()
-        //clear room
-        App.database.redditItemDao().deleteAll()
-        //save list room
-        val roomList = Utils.convertList(itemList.value)
-        App.database.redditItemDao().insertAll(roomList)
 
         return itemList
     }

@@ -33,12 +33,10 @@ class MainActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
         refresh = findViewById(R.id.swipeRefreshLayout)
         refresh.setOnRefreshListener(this)
 
-//        val model: TopListViewModel by viewModels()
-
         fetchData()
     }
 
-    fun fetchData() {
+    private fun fetchData() {
         if (Utils.isConnectedToInternet(this)) {
             Log.d(TAG, "from internet")
             warning.visibility = View.GONE
@@ -113,6 +111,7 @@ class MainActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     override fun onRefresh() {
+        refresh.isRefreshing = false
         fetchData()
     }
 }
